@@ -9,7 +9,7 @@ def click2():
     file = open("Name and age.csv", "a")
     name = message.get()
     age = message2.get()
-    newrecord = name + ", " + age + "\n"
+    newrecord = name + "," + age + "\n"
     file.write(str(newrecord))
     file.close()
     message.delete(0, END)
