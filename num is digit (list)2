@@ -1,0 +1,55 @@
+from tkinter import *
+import csv
+
+def click1():
+    num = message.get()
+    if num.isdigit():
+        show_list.insert(END, num)
+        message.delete(0, END)
+        message.focus()
+    else:
+        message.delete(0, END)
+        message.focus()
+
+def click2():
+    show_list.delete(0, END)
+    message.focus()
+
+def click3():
+    num = message.get()
+    file = open("Numbers.csv", "w")
+    tmp_list = show_list.get(0, END)
+    item = 0
+    for x in tmp_list:
+        newrecord = tmp_list[item] + "\n"
+        file.write(str(newrecord))
+        item = item + 1
+    file.close()
+
+window = Tk()
+window.title("Something")
+window.geometry("400x200")
+
+Label1 = Label(text="Enter a number")
+Label1.place(x = 20, y = 20, width=100, height=25)
+
+message = Entry(text="", bg="white", fg="black")
+message.place(x = 120, y = 20, width=100, height=25)
+message["justify"] = "center"
+message.focus()
+
+show_list = Listbox()
+show_list.place(x = 120, y = 50, width=100, height=100)
+show_list["relief"] = "raised"
+show_list["relief"] = "ridge"
+
+butt1 = Button(text="Add to list", command=click1)
+butt1.place(x = 250, y = 20, width=100, height=25)
+
+butt2 = Button(text="Clear", command=click2)
+butt2.place(x = 250, y = 50, width=100, height=25)
+
+butt3 = Button(text="Save as csv", command=click3)
+butt3.place(x = 250, y = 80, width=100, height=25)
+
+window.mainloop()
