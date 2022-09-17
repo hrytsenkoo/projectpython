@@ -1,0 +1,43 @@
+from tkinter import *
+
+def click():
+    num = message.get()
+    num = int(num)
+    result = num * 1.6093
+    result = round(result, 3)
+    output_box["text"] = result
+    message.delete(0, END)
+    output_box.focus()
+
+def new():
+    num = message.get()
+    num = int(num)
+    result2 = num * 0.6214
+    result2 = round(result2, 3)
+    output_box["text"] = result2
+    message.delete(0, END)
+    output_box.focus()
+
+
+window = Tk()
+window.title("Kilometers")
+window.geometry("260x200")
+
+Label1 = Label(text="Enter the value you want to convert:")
+Label1.place(x=30, y=20)
+
+message = Entry(text="", bg="white", fg='black')
+message.place(x = 30, y = 50, width=200, height=25)
+message["justify"] = "center"
+message.focus()
+
+butt1 = Button(text="Convert miles to km", bg="white", fg="black", command=click)
+butt1.place(x = 30, y = 80, width=200, height=25)
+
+butt2 = Button(text="Convert km to miles", bg="white", fg="black", command=new)
+butt2.place(x = 30, y = 110, width=200, height=25)
+
+output_box = Message(text="", bg="white", fg='black')
+output_box.place(x = 30, y = 140, width=200, height=25)
+
+window.mainloop()
