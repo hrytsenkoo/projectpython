@@ -16,7 +16,6 @@ def click2():
     message.focus()
 
 def click3():
-    num = message.get()
     file = open("Numbers.csv", "w")
     tmp_list = show_list.get(0, END)
     item = 0
