@@ -1,0 +1,62 @@
+from tkinter import *
+import random
+
+def check():
+    ans = answer.get()
+    ans = int(ans)
+    num1 = num1_box['text']
+    num1 = int(num1)
+    num2 = num2_box['text']
+    num2 = int(num2)
+    result = num1 + num2
+    if ans == result:
+        img = PhotoImage(file="C:\\Users\\User\\Desktop\\2.gif")
+        imgbox.image = img
+        answer.delete(0, END)
+    else:
+        img = PhotoImage(file="C:\\Users\\User\\Desktop\\3.gif")
+        imgbox.image = img
+        answer.delete(0, END)
+    imgbox["image"] = img
+    imgbox.update()
+
+def nextquestion():
+    answer.delete(0, END)
+    num1 = random.randint(10, 50)
+    num1_box["text"] = num1
+    num2 = random.randint(10, 50)
+    num2_box["text"] = num2
+
+window = Tk()
+window.title("Maths")
+window.geometry("250x300")
+
+num1_box = Label(text="0")
+num1_box.place(x=50, y=30, width=25, height=25)
+
+add = Message(text="+")
+add.place(x=75, y=30, width=25, height=25)
+
+num2_box = Label(text="0")
+num2_box.place(x=100, y=30, width=25, height=25)
+
+eql = Message(text ="=")
+eql.place(x=125, y=30, width=25, height = 25)
+
+answer = Entry(text="")
+answer.place(x=150, y=30, width=25, height=25)
+answer["justify"] = "center"
+answer.focus()
+
+check = Button(text="Check", command=check)
+check.place(x=50, y=60, width=75, height=25)
+
+next = Button(text="Next", command=nextquestion)
+next.place(x=130, y=60, width=75, height=25)
+
+img = PhotoImage(file="")
+imgbox = Label(image=img)
+imgbox.image = img
+imgbox.place(x=25, y=100, width=200, height=150)
+
+window.mainloop()
