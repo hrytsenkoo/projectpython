@@ -1,0 +1,34 @@
+from tkinter import *
+
+def click():
+    name = message.get()
+    print = "Hello " + name
+    output['text'] = print
+    message.focus()
+
+window = Tk()
+window.title("Names")
+window.geometry("450x350")
+window.configure(background="black")
+img = PhotoImage(file="C:\\Users\\User\\Desktop\\1.gif") 
+window.iconphoto(False, img)
+
+img2 = PhotoImage(file="C:\\Users\\User\\Desktop\\Без имени.gif")
+img22 = Label(image=img2)
+img22.place(x = 100, y = 20, width=200, height=150)
+
+Label1 = Label(text="Enter your name:", bg="black", fg="white")
+Label1.place(x = 30, y = 200)
+
+message = Entry(text="")
+message.place(x = 150, y = 200, width=200, height=25)
+message["justify"] = "center"
+message.focus()
+
+butt = Button(text="Press me", bg="grey", fg="black", command=click)
+butt.place(x = 30, y = 250, width=120, height=25)
+
+output = Message(text="")
+output.place(x = 150, y = 250, width=200, height=25)
+
+window.mainloop()
