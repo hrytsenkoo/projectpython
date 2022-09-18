@@ -59,4 +59,5 @@ imgbox = Label(image=img)
 imgbox.image = img
 imgbox.place(x=25, y=100, width=200, height=150)
 
+nextquestion()
 window.mainloop()
